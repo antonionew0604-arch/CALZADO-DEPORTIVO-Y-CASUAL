@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMPERIA LUXE | Sneakers Store</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#0b0b0d;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-container{
+      width:90%;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-size:2rem;
+      font-weight:800;
+      letter-spacing:2px;
+      color:#ffffff;
+    }
+
+    .logo span{
+      color:#ff3c78;
+    }
+
+    .menu{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:white;
+      font-size:0.95rem;
+      transition:0.3s;
+      position:relative;
+    }
+
+    .menu a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0%;
+      height:2px;
+      background:#ff3c78;
+      transition:0.3s;
+    }
+
+    .menu a:hover::after{
+      width:100%;
+    }
+
+    .menu a:hover{
+      color:#ff3c78;
+    }
+
+    /* HERO */
+
+    .hero{
+      width:100%;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+      url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1974&auto=format&fit=crop') center/cover;
+      position:relative;
+    }
+
+    .hero-content{
+      text-align:center;
+      max-width:800px;
+      padding:20px;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero h1{
+      font-size:5rem;
+      font-weight:800;
+      line-height:1;
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+      color:#ff3c78;
+    }
+
+    .hero p{
+      color:#d9d9d9;
+      font-size:1.1rem;
+      margin-bottom:35px;
+      line-height:1.8;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 35px;
+      border-radius:50px;
+      background:#ff3c78;
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+      box-shadow:0 10px 30px rgba(255,60,120,0.35);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px) scale(1.03);
+      background:#ff1f64;
+    }
+
+    /* SECCIONES */
+
+    section{
+      width:90%;
+      margin:auto;
+      padding:100px 0;
+    }
+
+    .title{
+      font-size:2.8rem;
+      margin-bottom:20px;
+      font-weight:700;
+    }
+
+    .subtitle{
+      color:#bcbcbc;
+      margin-bottom:60px;
+      line-height:1.8;
+    }
+
+    /* PRODUCTOS */
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#141418;
+      border-radius:25px;
+      overflow:hidden;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.05);
+      position:relative;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      transition:0.4s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-size:1.2rem;
+    }
+
+    .price{
+      color:#ff3c78;
+      font-weight:700;
+      font-size:1.1rem;
+      margin-bottom:20px;
+      display:block;
+    }
+
+    .buy-btn{
+      width:100%;
+      border:none;
+      padding:14px;
+      border-radius:14px;
+      background:#ff3c78;
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .buy-btn:hover{
+      background:#ff1f64;
+      transform:scale(1.03);
+    }
+
+    /* BANNER */
+
+    .banner{
+      width:100%;
+      height:500px;
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      margin-top:50px;
+      background:
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1974&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+      padding:60px;
+    }
+
+    .banner-content h2{
+      font-size:4rem;
+      margin-bottom:20px;
+    }
+
+    .banner-content p{
+      color:#ddd;
+      max-width:500px;
+      line-height:1.8;
+      margin-bottom:30px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:25px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .about-text h2{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      color:#c7c7c7;
+      line-height:2;
+      margin-bottom:25px;
+    }
+
+    /* CONTACTO */
+
+    .contact-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:40px;
+    }
+
+    .contact-card{
+      background:#141418;
+      padding:40px;
+      border-radius:25px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .contact-card h3{
+      margin-bottom:20px;
+      font-size:1.8rem;
+    }
+
+    .contact-card input,
+    .contact-card textarea{
+      width:100%;
+      padding:15px;
+      margin-bottom:20px;
+      border:none;
+      border-radius:12px;
+      background:#1e1e24;
+      color:white;
+      outline:none;
+    }
+
+    .contact-card textarea{
+      resize:none;
+      height:120px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#050505;
+      padding:40px 10%;
+      text-align:center;
+      color:#888;
+      margin-top:80px;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ANIMACIONES */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:3.5rem;
+      }
+
+      .banner-content h2{
+        font-size:2.5rem;
+      }
+
+      .menu{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .nav-container{
+        flex-direction:column;
+        gap:20px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero h1{
+        font-size:2.7rem;
+      }
+
+      .title{
+        font-size:2rem;
+      }
+
+      .banner{
+        padding:30px;
+      }
+
+      .banner-content h2{
+        font-size:2rem;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo">IMPERIA <span>LUXE</span></div>
+
+      <ul class="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Colección</a></li>
+        <li><a href="#destacados">Destacados</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>THE FUTURE OF <span>SNEAKERS</span></h1>
+
+      <p>
+        Descubre la nueva colección premium de sneakers urbanos.
+        Diseño exclusivo, comodidad total y el mejor estilo streetwear.
+      </p>
+
+      <a href="#productos" class="btn">Comprar ahora</a>
+    </div>
+  </section>
+
+  <!-- MODAL PRODUCTO -->
+
+<div id="productModal" style="position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:20000;padding:20px;">
+
+<div style="background:#141418;width:100%;max-width:900px;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;position:relative;">
+
+<img id="modalImage" src="" style="width:100%;height:100%;object-fit:cover;min-height:500px;">
+
+<div style="padding:40px;">
+
+<h2 id="modalTitle" style="font-size:2.5rem;margin-bottom:20px;"></h2>
+
+<p id="modalDescription" style="line-height:2;color:#c7c7c7;margin-bottom:25px;"></p>
+
+<h3 id="modalPrice" style="font-size:2rem;color:#ff3c78;margin-bottom:25px;"></h3>
+
+<div style="display:flex;gap:15px;flex-wrap:wrap;">
+<button id="addModalCart" class="buy-btn">Agregar al carrito</button>
+<a href="https://wa.me/527296176293" target="_blank" class="btn">Comprar por WhatsApp</a>
+</div>
+
+</div>
+
+<button onclick="closeModal()" style="position:absolute;top:15px;right:15px;background:#ff3c78;border:none;color:white;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;">✕</button>
+
+</div>
+
+</div>
+
+<!-- CARRITO PANEL -->
+
+<div id="cartPanel" style="position:fixed;top:0;right:-500px;width:400px;height:100vh;background:#0f0f12;z-index:25000;padding:30px;transition:0.5s;overflow-y:auto;border-left:1px solid rgba(255,255,255,0.08);">
+
+<h2 style="margin-bottom:25px;font-size:2rem;">🛒 Mi carrito</h2>
+
+<div id="cartItems"></div>
+
+<h3 id="cartTotal" style="margin-top:25px;color:#ff3c78;"></h3>
+
+<a href="https://wa.me/527296176293" target="_blank" class="btn" style="width:100%;text-align:center;margin-top:20px;">Finalizar compra</a>
+
+<button onclick="toggleCart()" style="margin-top:15px;width:100%;padding:14px;border:none;border-radius:14px;background:#222;color:white;cursor:pointer;">Cerrar</button>
+
+</div>
+
+<!-- PRODUCTOS -->
+
+  <section id="productos">
+
+    <h2 class="title">Nueva Colección</h2>
+
+    <p class="subtitle">
+      Sneakers exclusivos con diseño moderno y materiales premium.
+    </p>
+
+    <div class="products-grid" id="productsContainer"></div>
+
+</section>
+
+  <!-- NOSOTROS -->
+
+  <section id="nosotros">
+
+    <div class="about">
+
+      <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=1974&auto=format&fit=crop" alt="Sneakers Store">
+
+      <div class="about-text">
+
+        <h2>IMPERIA LUXE</h2>
+
+        <p>
+          Somos una tienda enfocada en ofrecer sneakers premium con diseños exclusivos y auténticos.
+          Nuestra misión es combinar moda, comodidad y cultura urbana en cada colección.
+        </p>
+
+        <p>
+          Trabajamos con las marcas más reconocidas del mundo para brindarte productos originales,
+          modernos y de la más alta calidad.
+        </p>
+
+        <a href="#productos" class="btn">Explorar catálogo</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACTO -->
+
+  <section id="contacto">
+
+    <h2 class="title">Contáctanos</h2>
+
+    <p class="subtitle">
+      ¿Necesitas ayuda o quieres conocer más sobre nuestros productos?
+    </p>
+
+    <div class="contact-container">
+
+      <div class="contact-card">
+
+        <h3>Envíanos un mensaje</h3>
+
+        <input type="text" placeholder="Tu nombre">
+
+        <input type="email" placeholder="Tu correo">
+
+        <textarea placeholder="Escribe tu mensaje..."></textarea>
+
+        <button class="buy-btn">Enviar mensaje</button>
+
+      </div>
+
+      <div class="contact-card">
+
+        <h3>Información</h3>
+
+        <p style="line-height:2;color:#c7c7c7;">
+           Toluca, México <br><br>
+           +52 722 000 0000 <br><br>
+          ✉imperialuxe@sneakers.com <br><br>
+          ⏰Lunes a Sábado | 10:00 AM - 9:00 PM
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  
+<!-- CUESTIONARIO -->
+
+<section id="cuestionario">
+
+<h2 class="title">Cuestionario de Preferencias</h2>
+
+<p class="subtitle">
+Ayúdanos a conocer tus gustos para recomendarte los mejores sneakers.
+</p>
+
+<div class="contact-card" style="max-width:700px;margin:auto;">
+
+<form>
+
+<label style="display:block;margin-bottom:10px;">¿Qué tipo de sneakers prefieres?</label>
+
+<select style="width:100%;padding:15px;margin-bottom:25px;border:none;border-radius:12px;background:#1e1e24;color:white;">
+<option>Selecciona una opción</option>
+<option>Urbanos</option>
+<option>Deportivos</option>
+<option>Casuales</option>
+<option>Edición limitada</option>
+</select>
+
+<label style="display:block;margin-bottom:15px;">¿Comprarías nuevamente en IMPERIA LUXE?</label>
+
+<div style="margin-bottom:25px;">
+<label style="display:block;margin-bottom:10px;">
+<input type="radio" name="compra"> Sí
+</label>
+
+<label style="display:block;">
+<input type="radio" name="compra"> No
+</label>
+</div>
+
+<button type="submit" class="buy-btn">Enviar respuestas</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+  <!-- PROMOCIONES -->
+
+<section id="promociones">
+
+<h2 class="title"> Promociones Exclusivas</h2>
+
+<p class="subtitle">
+Aprovecha nuestras ofertas limitadas y consigue los sneakers más exclusivos al mejor precio.
+</p>
+
+<div class="products-grid">
+
+<div class="card" style="background:linear-gradient(135deg,#ff3c78,#ff7b54);">
+<div class="card-content">
+<h3 style="font-size:2rem;">2x1 EN SNEAKERS</h3>
+<p style="line-height:2;margin:20px 0;">
+Compra cualquier par premium y llévate el segundo con hasta 50% OFF.
+</p>
+<button class="buy-btn" style="background:white;color:#111;">Aprovechar oferta</button>
+</div>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);">
+<div class="card-content">
+<h3 style="font-size:2rem;">ENVÍO GRATIS</h3>
+<p style="line-height:2;margin:20px 0;">
+En compras mayores a $3,500 MXN obtén envío totalmente gratis a todo México.
+</p>
+<button class="buy-btn" style="background:white;color:#111;">Comprar ahora</button>
+</div>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#0f172a,#334155);">
+<div class="card-content">
+<h3 style="font-size:2rem;">EDICIONES LIMITADAS</h3>
+<p style="line-height:2;margin:20px 0;">
+Acceso anticipado a drops exclusivos y sneakers que no encontrarás en otras tiendas.
+</p>
+<button class="buy-btn" style="background:white;color:#111;">Ver drops</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- BANNER PUBLICITARIO -->
+
+<section style="width:100%;padding:0;">
+
+<div style="
+width:100%;
+min-height:450px;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=2070&auto=format&fit=crop') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+">
+
+<div>
+
+<h2 style="font-size:4rem;margin-bottom:25px;">STEP INTO THE FUTURE 👟</h2>
+
+<p style="max-width:800px;margin:auto;line-height:2;color:#ddd;font-size:1.1rem;margin-bottom:35px;">
+Los mejores sneakers del momento están aquí. Diseños exclusivos, drops limitados,
+estilo urbano premium y promociones increíbles.
+Únete a miles de clientes satisfechos y lleva tu outfit al siguiente nivel.
+</p>
+
+<a href="#productos" class="btn">Explorar colección</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACTO REDES -->
+
+<section id="redes">
+
+<h2 class="title"> Redes y Atención</h2>
+
+<p class="subtitle">
+Contáctanos directamente para apartados, dudas, envíos o pedidos personalizados.
+</p>
+
+<div class="contact-container">
+
+<div class="contact-card">
+
+<h3>💬 WhatsApp</h3>
+
+<p style="line-height:2;color:#c7c7c7;margin-bottom:25px;">
+Atención rápida y personalizada.
+Cotiza tus sneakers favoritos y recibe promociones exclusivas.
+</p>
+
+<a href="https://wa.me/527296176293" target="_blank" class="btn">Enviar mensaje</a>
+
+</div>
+
+<div class="contact-card">
+
+<h3> Instagram</h3>
+
+<p style="line-height:2;color:#c7c7c7;margin-bottom:25px;">
+Síguenos para ver nuevos lanzamientos, promociones, outfits y drops exclusivos.
+</p>
+
+<a href="https://www.instagram.com/anthonyo6804?igsh=NnphN3U3b25yNXB5" target="_blank" class="btn">Ir al Instagram</a>
+
+</div>
+
+<div class="contact-card">
+
+<h3>⚡Beneficios Premium</h3>
+
+<p style="line-height:2;color:#c7c7c7;">
+ Sneakers 100% originales<br><br>
+ Envíos rápidos a todo México<br><br>
+ Apartados disponibles<br><br>
+ Drops exclusivos<br><br>
+ Atención personalizada
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+    © 2026 IMPERIA LUXE — Sneakers Store Premium.
+  </footer>
+
+
+
+<script>
+
+// BASE DE DATOS DE PRODUCTOS
+
+const sneakers = [
+
+{name:'Nike Air Max 270',gender:'Hombre',price:3299,image:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1974&auto=format&fit=crop',description:'Diseño urbano premium con máxima comodidad y amortiguación Air.'},
+{name:'Jordan Retro High',gender:'Hombre',price:4599,image:'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=1974&auto=format&fit=crop',description:'Modelo icónico inspirado en el basketball clásico y el streetwear moderno.'},
+{name:'Adidas Forum Low',gender:'Hombre',price:2999,image:'https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1974&auto=format&fit=crop',description:'Tenis retro con detalles premium y estilo casual.'},
+{name:'Puma RS-X',gender:'Hombre',price:2699,image:'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1974&auto=format&fit=crop',description:'Diseño futurista con colores vibrantes y máxima comodidad.'},
+{name:'Nike Dunk Low Panda',gender:'Hombre',price:3999,image:'https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974&auto=format&fit=crop',description:'Uno de los modelos más populares del momento.'},
+{name:'Yeezy Boost 350',gender:'Hombre',price:6299,image:'https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=1974&auto=format&fit=crop',description:'Sneaker premium con diseño minimalista y tecnología Boost.'},
+{name:'Air Force 1 White',gender:'Hombre',price:2799,image:'https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1974&auto=format&fit=crop',description:'El clásico más vendido de Nike.'},
+{name:'New Balance 550',gender:'Hombre',price:4199,image:'https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=1974&auto=format&fit=crop',description:'Estética vintage con materiales premium.'},
+{name:'Nike Blazer Mid',gender:'Hombre',price:3499,image:'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1974&auto=format&fit=crop',description:'Diseño retro con estilo moderno.'},
+{name:'Converse Chuck Taylor',gender:'Hombre',price:1899,image:'https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1974&auto=format&fit=crop',description:'Clásico urbano que nunca pasa de moda.'},
+
+{name:'Nike Air Max Pink',gender:'Mujer',price:3199,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1974&auto=format&fit=crop',description:'Diseño femenino moderno con máxima comodidad.'},
+{name:'Adidas Campus Women',gender:'Mujer',price:2899,image:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1974&auto=format&fit=crop',description:'Modelo elegante ideal para outfits urbanos.'},
+{name:'Jordan Low Pink',gender:'Mujer',price:4799,image:'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1974&auto=format&fit=crop',description:'Diseño exclusivo inspirado en moda streetwear femenina.'},
+{name:'Puma Cali',gender:'Mujer',price:2499,image:'https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1974&auto=format&fit=crop',description:'Sneaker casual elegante y cómodo.'},
+{name:'Nike Dunk Rose',gender:'Mujer',price:3999,image:'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=1974&auto=format&fit=crop',description:'Modelo exclusivo con detalles rosas premium.'}
+];
+
+// DUPLICAR HASTA 40 MODELOS
+
+while(sneakers.length < 40){
+
+const base = sneakers[sneakers.length % 15];
+
+sneakers.push({
+name: base.name + ' Edition ' + sneakers.length,
+gender: base.gender,
+price: base.price + (sneakers.length * 10),
+image: base.image,
+description: base.description
+});
+
+}
+
+const productsContainer = document.getElementById('productsContainer');
+
+function renderProducts(list){
+
+productsContainer.innerHTML = '';
+
+list.forEach((product,index)=>{
+
+productsContainer.innerHTML += `
+
+<div class="card">
+<img src="${product.image}">
+<div class="card-content">
+<h3>${product.name}</h3>
+<p style="color:#999;margin-bottom:10px;">${product.gender}</p>
+<span class="price">$${product.price} MXN</span>
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<button class="buy-btn" onclick="addToCart(${index})">Agregar</button>
+<button class="buy-btn" style="background:#222;" onclick="showProduct(${index})">Ver modelo</button>
+</div>
+</div>
+</div>
+
+`;
+
+});
+
+}
+
+renderProducts(sneakers);
+
+
+// MODAL PRODUCTO
+
+let currentProduct = null;
+
+function showProduct(index){
+
+currentProduct = sneakers[index];
+
+document.getElementById('modalTitle').innerHTML = currentProduct.name;
+document.getElementById('modalDescription').innerHTML = currentProduct.description + '<br><br><strong>Categoria:</strong> ' + currentProduct.gender + '<br><strong>Disponibilidad:</strong> En stock';
+document.getElementById('modalPrice').innerHTML = '$' + currentProduct.price + ' MXN';
+document.getElementById('modalImage').src = currentProduct.image;
+
+document.getElementById('productModal').style.display = 'flex';
+
+}
+
+function closeModal(){
+document.getElementById('productModal').style.display = 'none';
+}
+
+// CARRITO AVANZADO
+
+// carrito manejado arriba
+
+function addToCart(index){
+
+cart.push(sneakers[index]);
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+
+cartItems.innerHTML = '';
+
+let total = 0;
+
+cart.forEach(item=>{
+
+cartItems.innerHTML += `
+
+<div style="background:#141418;padding:18px;border-radius:18px;margin-bottom:15px;">
+<h3>${item.name}</h3>
+<p style="color:#999;">${item.gender}</p>
+<h4 style="color:#ff3c78;">$${item.price} MXN</h4>
+</div>
+
+`;
+
+total += item.price;
+
+});
+
+cartTotal.innerHTML = 'Total: $' + total + ' MXN';
+
+cartCounter.innerHTML = `🛒 Carrito: ${cart.length}`;
+
+}
+
+function toggleCart(){
+
+const panel = document.getElementById('cartPanel');
+
+if(panel.style.right === '0px'){
+panel.style.right = '-500px';
+}else{
+panel.style.right = '0px';
+}
+
+}
+
+// FILTRO DE PRODUCTOS
+
+const searchInput = document.createElement('input');
+searchInput.placeholder = 'Buscar modelos...';
+searchInput.style.width = '100%';
+searchInput.style.padding = '18px';
+searchInput.style.marginBottom = '40px';
+searchInput.style.borderRadius = '15px';
+searchInput.style.border = 'none';
+searchInput.style.background = '#141418';
+searchInput.style.color = 'white';
+searchInput.style.fontSize = '1rem';
+
+const productsSection = document.querySelector('#productos .subtitle');
+productsSection.insertAdjacentElement('afterend', searchInput);
+
+searchInput.addEventListener('keyup', () => {
+
+  const value = searchInput.value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+
+    const text = card.innerText.toLowerCase();
+
+    if(text.includes(value)){
+      card.style.display = 'block';
+    }else{
+      card.style.display = 'none';
+    }
+
+  });
+
+});
+
+// CARRITO INTERACTIVO
+
+let cart = [];
+
+const cartCounter = document.createElement('div');
+cartCounter.innerHTML = '🛒 Ver carrito (0)';
+cartCounter.style.position = 'fixed';
+cartCounter.style.bottom = '20px';
+cartCounter.style.right = '20px';
+cartCounter.style.background = '#ff3c78';
+cartCounter.style.padding = '15px 25px';
+cartCounter.style.borderRadius = '50px';
+cartCounter.style.fontWeight = '600';
+cartCounter.style.zIndex = '10000';
+cartCounter.style.boxShadow = '0 10px 30px rgba(255,60,120,0.4)';
+cartCounter.style.cursor = 'pointer';
+cartCounter.addEventListener('click',toggleCart);
+
+document.body.appendChild(cartCounter);
+
+const buttons = document.querySelectorAll('.buy-btn');
+
+buttons.forEach(button => {
+
+  button.addEventListener('click', () => {
+
+    const product = button.parentElement.querySelector('h3').innerText;
+
+    cart.push(product);
+
+    cartCounter.innerHTML = `🛒 Carrito: ${cart.length}`;
+
+    button.innerHTML = 'Agregado ✓';
+    button.style.background = '#1ecb73';
+
+  });
+
+});
+
+// EFECTO NAVBAR
+
+window.addEventListener('scroll', () => {
+
+  const nav = document.querySelector('nav');
+
+  if(window.scrollY > 50){
+    nav.style.background = 'rgba(0,0,0,0.95)';
+  }else{
+    nav.style.background = 'rgba(0,0,0,0.7)';
+  }
+
+});
+
+</script>
+
+<!-- MODELOS EXTRA -->
+
+<section style="width:90%;margin:auto;padding-top:0;">
+
+<h2 class="title">Modelos Hombre</h2>
+
+<div class="products-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974&auto=format&fit=crop">
+<div class="card-content">
+<h3>Nike Dunk Low</h3>
+<span class="price">$3,899 MXN</span>
+<button class="buy-btn">Agregar al carrito</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=1974&auto=format&fit=crop">
+<div class="card-content">
+<h3>Yeezy Boost</h3>
+<span class="price">$6,299 MXN</span>
+<button class="buy-btn">Agregar al carrito</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1974&auto=format&fit=crop">
+<div class="card-content">
+<h3>Air Force 1</h3>
+<span class="price">$2,799 MXN</span>
+<button class="buy-btn">Agregar al carrito</button>
+</div>
+</div>
+
+</div>
+
+<h2 class="title" style="margin-top:80px;">Modelos Mujer</h2>
+
+<div class="products-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1974&auto=format&fit=crop">
+<div class="card-content">
+<h3>Nike Blazer Pink</h3>
+<span class="price">$3,199 MXN</span>
+<button class="buy-btn">Agregar al carrito</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1974&auto=format&fit=crop">
+<div class="card-content">
+<h3>Adidas Campus</h3>
+<span class="price">$2,999 MXN</span>
+<button class="buy-btn">Agregar al carrito</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=1974&auto=format&fit=crop">
+<div class="card-content">
+<h3>New Balance 550</h3>
+<span class="price">$4,199 MXN</span>
+<button class="buy-btn">Agregar al carrito</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- BOTÓN WHATSAPP -->
+
+<a href="https://wa.me/527296176293" target="_blank"
+style="
+position:fixed;
+bottom:95px;
+right:20px;
+background:#25D366;
+color:white;
+padding:16px 22px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+z-index:9999;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+">
+ WhatsApp
+</a>
+
+</body>
+</html>
+
